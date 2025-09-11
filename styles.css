@@ -1,0 +1,151 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f7f7fb;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 32px 24px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  justify-content: center;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px 0;
+  background: #f0f0f7;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-weight: 500;
+}
+
+.tab-btn.active {
+  background: #4f8a8b;
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.contact-list {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  background: #f9fafc;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  padding: 18px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.card-title {
+  font-weight: 600;
+  font-size: 1.08rem;
+  word-break: break-word;
+  margin-bottom: 2px;
+}
+
+.card-jabatan {
+  color: #4a90e2;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.card-ruang {
+  color: #7b68ee;
+  font-size: 0.82rem;
+}
+
+.card-phone {
+  color: #666;
+  font-size: 0.97rem;
+  margin: 2px 0;
+}
+
+.card-keperluan {
+  color: #888;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.hubungi-btn {
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.98rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+.hubungi-btn:hover {
+  background: #1da851;
+}
+
+.footer {
+  text-align: center;
+  color: #888;
+  margin-top: 32px;
+  font-size: 1rem;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  color: #4f8a8b;
+}

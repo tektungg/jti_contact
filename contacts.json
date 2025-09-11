@@ -1,0 +1,952 @@
+{
+    "Dosen": [
+        {
+            "No.": "64",
+            "NIP": "198010102005011001",
+            "Nama": "Rosa Andrie Asmara",
+            "Nama Gelar": "Prof. Dr. Eng. Rosa Andrie Asmara, S.T., M.T.",
+            "No. Telpon": "08121743514",
+            "Jabatan": "Ketua Jurusan"
+        },
+        {
+            "No.": "55",
+            "NIP": "198805042015041001",
+            "Nama": "Pramana Yoga Saputra",
+            "Nama Gelar": "Pramana Yoga Saputra, S.Kom., M.MT.",
+            "No. Telpon": "081330966644",
+            "Jabatan": "KPS D-II Pengembangan Perangkat (Piranti) Lunak Situs"
+        },
+        {
+            "No.": "43",
+            "NIP": "198211302014041001",
+            "Nama": "Luqman Affandi",
+            "Nama Gelar": "Luqman Affandi, S.Kom., M.MSI.",
+            "No. Telpon": "081333282900",
+            "Jabatan": "KPS D-III Manajemen Informatika PSDKU Pamekasan"
+        },
+        {
+            "No.": "34",
+            "NIP": "197704242008121001",
+            "Nama": "Gunawan Budiprasetyo",
+            "Nama Gelar": "Gunawan Budiprasetyo, S.T., M.MT., Ph.D.",
+            "No. Telpon": "081553003086",
+            "Jabatan": "KPS D-III Teknologi Infomasi PSDKU Lumajang"
+        },
+        {
+            "No.": "36",
+            "NIP": "198305212006041003",
+            "Nama": "Hendra Pradibta",
+            "Nama Gelar": "Hendra Pradibta, S.E., M.Sc.",
+            "No. Telpon": "081252537493",
+            "Jabatan": "KPS D-IV Sistem Informasi Bisnis"
+        },
+        {
+            "No.": "28",
+            "NIP": "197605152009122001",
+            "Nama": "Ely Setyo Astuti",
+            "Nama Gelar": "Dr. Ely Setyo Astuti, S.T., M.T.",
+            "No. Telpon": "08125971983",
+            "Jabatan": "KPS D-IV Teknik Informatika"
+        },
+        {
+            "No.": "52",
+            "NIP": "197710302005012001",
+            "Nama": "Mungki Astiningrum",
+            "Nama Gelar": "Mungki Astiningrum, S.T., M.Kom.",
+            "No. Telpon": "08113615482",
+            "Jabatan": "Sekretaris Jurusan"
+        },
+        {
+            "No.": "1",
+            "NIP": "199107042019031021",
+            "Nama": "Ade Ismail",
+            "Nama Gelar": "Ade Ismail, S.Kom., M.TI.",
+            "No. Telpon": "081288012854",
+            "Jabatan": ""
+        },
+        {
+            "No.": "2",
+            "NIP": "200482071",
+            "Nama": "Adevian Fairuz Pratama",
+            "Nama Gelar": "Adevian Fairuz Pratama, S.S.T, M.Eng.",
+            "No. Telpon": "081333156702",
+            "Jabatan": ""
+        },
+        {
+            "No.": "3",
+            "NIP": "198902102019031020",
+            "Nama": "Agung Nugroho Pramudhita",
+            "Nama Gelar": "Agung Nugroho Pramudhita, S.T., M.T.",
+            "No. Telpon": "081334699967",
+            "Jabatan": ""
+        },
+        {
+            "No.": "4",
+            "NIP": "170361025",
+            "Nama": "Ahmad Baha'uddin Almu'faro",
+            "Nama Gelar": "Ahmad Baha'uddin Almu'faro, S.Pd.I., M.Pd.I.",
+            "No. Telpon": "085101288099",
+            "Jabatan": ""
+        },
+        {
+            "No.": "5",
+            "NIP": "198107052005011002",
+            "Nama": "Ahmadi Yuli Ananta",
+            "Nama Gelar": "Ahmadi Yuli Ananta, S.T., M.M.",
+            "No. Telpon": "08113037077",
+            "Jabatan": ""
+        },
+        {
+            "No.": "6",
+            "NIP": "198901232019032016",
+            "Nama": "Annisa Puspa Kirana",
+            "Nama Gelar": "Annisa Puspa Kirana, S.Kom, M.Kom.",
+            "No. Telpon": "082142919990",
+            "Jabatan": ""
+        },
+        {
+            "No.": "7",
+            "NIP": "198712142019032012",
+            "Nama": "Annisa Taufika Firdausi",
+            "Nama Gelar": "Annisa Taufika Firdausi, S.T., M.T.",
+            "No. Telpon": "0811361847",
+            "Jabatan": ""
+        },
+        {
+            "No.": "8",
+            "NIP": "199112302019031016",
+            "Nama": "Anugrah Nur Rahmanto",
+            "Nama Gelar": "Anugrah Nur Rahmanto, S.Sn, M.Ds.",
+            "No. Telpon": "0818536604",
+            "Jabatan": ""
+        },
+        {
+            "No.": "9",
+            "NIP": "198108102005012002",
+            "Nama": "Ariadi Retno Tri Hayati Ririd",
+            "Nama Gelar": "Ariadi Retno Tri Hayati Ririd, S.Kom., M.Kom.",
+            "No. Telpon": "081615274203",
+            "Jabatan": ""
+        },
+        {
+            "No.": "10",
+            "NIP": "198708242019031010",
+            "Nama": "Arie Rachmad Syulistyo",
+            "Nama Gelar": "Arie Rachmad Syulistyo, S.Kom., M.Kom.",
+            "No. Telpon": "081615770004",
+            "Jabatan": ""
+        },
+        {
+            "No.": "11",
+            "NIP": "197903132008121002",
+            "Nama": "Arief Prasetyo",
+            "Nama Gelar": "Arief Prasetyo, S.Kom., M.Kom.",
+            "No. Telpon": "08123187691",
+            "Jabatan": ""
+        },
+        {
+            "No.": "12",
+            "NIP": "190881249",
+            "Nama": "Arwin Datumaya Wahyudi Sumari",
+            "Nama Gelar": "Dr. Ir. Arwin Datumaya Wahyudi Sumari, S.T., M.T.IPM.ASEANEng.",
+            "No. Telpon": "083840811400",
+            "Jabatan": ""
+        },
+        {
+            "No.": "13",
+            "NIP": "199405212022032000",
+            "Nama": "Astrifidha Rahma Amalia",
+            "Nama Gelar": "Astrifidha Rahma Amalia, S.Pd., M.Pd.",
+            "No. Telpon": "085850273371",
+            "Jabatan": ""
+        },
+        {
+            "No.": "14",
+            "NIP": "197606252005012001",
+            "Nama": "Atiqah Nurul Asri",
+            "Nama Gelar": "Atiqah Nurul Asri, S.Pd., M.Pd.",
+            "No. Telpon": "083848283342",
+            "Jabatan": ""
+        },
+        {
+            "No.": "15",
+            "NIP": "199006192019031017",
+            "Nama": "Bagas Satya Dian Nugraha",
+            "Nama Gelar": "Bagas Satya Dian Nugraha, S.T, M.T.",
+            "No. Telpon": "08113344323",
+            "Jabatan": ""
+        },
+        {
+            "No.": "16",
+            "NIP": "198108092010121002",
+            "Nama": "Banni Satria Andoko",
+            "Nama Gelar": "Dr. Eng. Banni Satria Andoko, S.Kom., M.MSI.",
+            "No. Telpon": "081359889181",
+            "Jabatan": ""
+        },
+        {
+            "No.": "17",
+            "NIP": "196201051990031002",
+            "Nama": "Budi Harijanto",
+            "Nama Gelar": "Budi Harijanto, S.T., M.MKom.",
+            "No. Telpon": "08123313847",
+            "Jabatan": ""
+        },
+        {
+            "No.": "18",
+            "NIP": "197202022005011002",
+            "Nama": "Cahya Rahmad",
+            "Nama Gelar": "Prof. Cahya Rahmad, S.T., M.Kom., Dr. Eng.",
+            "No. Telpon": "085100393191",
+            "Jabatan": ""
+        },
+        {
+            "No.": "19",
+            "NIP": "199412172019032020",
+            "Nama": "Candra Bella Vista",
+            "Nama Gelar": "Candra Bella Vista, S.Kom, M.T.",
+            "No. Telpon": "085655823859",
+            "Jabatan": ""
+        },
+        {
+            "No.": "20",
+            "NIP": "196211281988111001",
+            "Nama": "Deddy Kusbianto Purwoko Aji",
+            "Nama Gelar": "Ir. Deddy Kusbianto Purwoko Aji, M.MKom.",
+            "No. Telpon": "08557698615",
+            "Jabatan": ""
+        },
+        {
+            "No.": "21",
+            "NIP": "198311092014042001",
+            "Nama": "Dhebys Suryani Hormansyah",
+            "Nama Gelar": "Dhebys Suryani Hormansyah, S.Kom., M.T.",
+            "No. Telpon": "085815330954",
+            "Jabatan": ""
+        },
+        {
+            "No.": "22",
+            "NIP": "198806102019031018",
+            "Nama": "Dian Hanifudin Subhi",
+            "Nama Gelar": "Dian Hanifudin Subhi, S.Kom., M.Kom.",
+            "No. Telpon": "085163736894",
+            "Jabatan": ""
+        },
+        {
+            "No.": "23",
+            "NIP": "199206062019031017",
+            "Nama": "Dika Rizky Yunianto",
+            "Nama Gelar": "Dika Rizky Yunianto, S.Kom., M.Kom.",
+            "No. Telpon": "081944819792",
+            "Jabatan": ""
+        },
+        {
+            "No.": "24",
+            "NIP": "198410092015041001",
+            "Nama": "Dimas Wahyu Wibowo",
+            "Nama Gelar": "Dimas Wahyu Wibowo, S.T., M.T.",
+            "No. Telpon": "08179646264",
+            "Jabatan": ""
+        },
+        {
+            "No.": "25",
+            "NIP": "198807112015042005",
+            "Nama": "Eka Larasati Amalia",
+            "Nama Gelar": "Eka Larasati Amalia, S.ST., M.T.",
+            "No. Telpon": "081259668854",
+            "Jabatan": ""
+        },
+        {
+            "No.": "26",
+            "NIP": "195912081985031004",
+            "Nama": "Ekojono",
+            "Nama Gelar": "Ekojono, S.T., M.Kom.",
+            "No. Telpon": "0816786553",
+            "Jabatan": ""
+        },
+        {
+            "No.": "27",
+            "NIP": "198610022019032011",
+            "Nama": "Elok Nur Hamdana",
+            "Nama Gelar": "Elok Nur Hamdana, S.T., M.T.",
+            "No. Telpon": "085655104757",
+            "Jabatan": ""
+        },
+        {
+            "No.": "29",
+            "NIP": "199401312022032007",
+            "Nama": "Endah Septa Sintiya",
+            "Nama Gelar": "Endah Septa Sintiya, S.Pd., M.Kom.",
+            "No. Telpon": "087859424430",
+            "Jabatan": ""
+        },
+        {
+            "No.": "30",
+            "NIP": "197201232008011006",
+            "Nama": "Erfan Rohadi",
+            "Nama Gelar": "Erfan Rohadi, S.T., M.Eng., Ph.D.",
+            "No. Telpon": "081553271964",
+            "Jabatan": ""
+        },
+        {
+            "No.": "31",
+            "NIP": "199305052019031018",
+            "Nama": "Faiz Ushbah Mubarok",
+            "Nama Gelar": "Faiz Ushbah Mubarok, S.Pd, M.Pd.",
+            "No. Telpon": "085755965300",
+            "Jabatan": ""
+        },
+        {
+            "No.": "32",
+            "NIP": "198910072020121003",
+            "Nama": "Farid Angga Pribadi",
+            "Nama Gelar": "Farid Angga Pribadi, S.Kom., M.Kom.",
+            "No. Telpon": "081357046700",
+            "Jabatan": ""
+        },
+        {
+            "No.": "33",
+            "NIP": "198004142023212020",
+            "Nama": "Farida Ulfa",
+            "Nama Gelar": "Farida Ulfa, S.Pd., M.Pd.",
+            "No. Telpon": "085334000317",
+            "Jabatan": ""
+        },
+        {
+            "No.": "35",
+            "NIP": "199204122019031013",
+            "Nama": "Habibie Ed Dien",
+            "Nama Gelar": "Habibie Ed Dien, S.Kom., M.T.",
+            "No. Telpon": "08113200670",
+            "Jabatan": ""
+        },
+        {
+            "No.": "37",
+            "NIP": "195911101986032000",
+            "Nama": "Henny Purwaningsih",
+            "Nama Gelar": "Dra. Henny Purwaningsih, M.Pd.",
+            "No. Telpon": "087759700366",
+            "Jabatan": ""
+        },
+        {
+            "No.": "38",
+            "NIP": "199110142019032020",
+            "Nama": "Ika Kusumaning Putri",
+            "Nama Gelar": "Ika Kusumaning Putri, S.Kom., M.T.",
+            "No. Telpon": "087759700366",
+            "Jabatan": ""
+        },
+        {
+            "No.": "39",
+            "NIP": "198406102008121004",
+            "Nama": "Imam Fahrur Rozi",
+            "Nama Gelar": "Imam Fahrur Rozi, S.T., M.T.",
+            "No. Telpon": "085233139738",
+            "Jabatan": ""
+        },
+        {
+            "No.": "40",
+            "NIP": "197305102008011010",
+            "Nama": "Indra Dharma Wijaya",
+            "Nama Gelar": "Dr. Indra Dharma Wijaya, S.T., M.MT.",
+            "No. Telpon": "081805098868",
+            "Jabatan": ""
+        },
+        {
+            "No.": "41",
+            "NIP": "198902012019031009",
+            "Nama": "Irsyad Arif Mashudi",
+            "Nama Gelar": "Irsyad Arif Mashudi, S.Kom., M.Kom.",
+            "No. Telpon": "081233093535",
+            "Jabatan": ""
+        },
+        {
+            "No.": "42",
+            "NIP": "199003202019031016",
+            "Nama": "Kadek Suarjuna Batubulan",
+            "Nama Gelar": "Kadek Suarjuna Batubulan, S.Kom., M.T.",
+            "No. Telpon": "085369199997",
+            "Jabatan": ""
+        },
+        {
+            "No.": "44",
+            "NIP": "199003052019031013",
+            "Nama": "M. Hasyim Ratsanjani",
+            "Nama Gelar": "M. Hasyim Ratsanjani, S.Kom., M.Kom.",
+            "No. Telpon": "08568855504",
+            "Jabatan": ""
+        },
+        {
+            "No.": "45",
+            "NIP": "199002062019032013",
+            "Nama": "Mamluatul Hani'ah",
+            "Nama Gelar": "Mamluatul Hani'ah, S.Kom., M.Kom.",
+            "No. Telpon": "082245405673",
+            "Jabatan": ""
+        },
+        {
+            "No.": "46",
+            "NIP": "198704242019032017",
+            "Nama": "Meyti Eka Apriyani",
+            "Nama Gelar": "Meyti Eka Apriyani, S.T., M.T.",
+            "No. Telpon": "081220096263",
+            "Jabatan": ""
+        },
+        {
+            "No.": "47",
+            "NIP": "198805072019032012",
+            "Nama": "Milyun Nima Shoumi",
+            "Nama Gelar": "Milyun Nima Shoumi, S.Kom., M.Kom.",
+            "No. Telpon": "085655535307",
+            "Jabatan": ""
+        },
+        {
+            "No.": "48",
+            "NIP": "198902102019031019",
+            "Nama": "Moch. Zawaruddin Abdullah",
+            "Nama Gelar": "Moch. Zawaruddin Abdullah, S.ST., M.Kom.",
+            "No. Telpon": "085648242526",
+            "Jabatan": ""
+        },
+        {
+            "No.": "49",
+            "NIP": "199111282019031013",
+            "Nama": "Muhammad Afif Hendrawan",
+            "Nama Gelar": "Muhammad Afif Hendrawan, S.Kom., M.T.",
+            "No. Telpon": "081333501063",
+            "Jabatan": ""
+        },
+        {
+            "No.": "50",
+            "NIP": "199205172019031020",
+            "Nama": "Muhammad Shulhan Khairy",
+            "Nama Gelar": "Muhammad Shulhan Khairy, S.Kom., M.Kom.",
+            "No. Telpon": "085749663736",
+            "Jabatan": ""
+        },
+        {
+            "No.": "51",
+            "NIP": "180461018",
+            "Nama": "Muhammad Unggul Pamenang",
+            "Nama Gelar": "Muhammad Unggul Pamenang, S.ST., M.T.",
+            "No. Telpon": "085854855100",
+            "Jabatan": ""
+        },
+        {
+            "No.": "53",
+            "NIP": "198806072019032016",
+            "Nama": "Mustika Mentari",
+            "Nama Gelar": "Mustika Mentari, S.Kom., M.Kom.",
+            "No. Telpon": "081357377463",
+            "Jabatan": ""
+        },
+        {
+            "No.": "54",
+            "NIP": "198911082019031020",
+            "Nama": "Noprianto",
+            "Nama Gelar": "Noprianto, S.Kom., M.Eng.",
+            "No. Telpon": "085878554150",
+            "Jabatan": ""
+        },
+        {
+            "No.": "56",
+            "NIP": "198611032014041001",
+            "Nama": "Putra Prima Arhandi",
+            "Nama Gelar": "Putra Prima Arhandi, S.T., M.Kom.",
+            "No. Telpon": "081381476586",
+            "Jabatan": ""
+        },
+        {
+            "No.": "57",
+            "NIP": "198701082019031004",
+            "Nama": "Rakhmat Arianto",
+            "Nama Gelar": "Dr. Rakhmat Arianto, S.ST., M.Kom.",
+            "No. Telpon": "081383569927",
+            "Jabatan": ""
+        },
+        {
+            "No.": "58",
+            "NIP": "195906201994031001",
+            "Nama": "Rawansyah",
+            "Nama Gelar": "Drs. Rawansyah, M.Pd",
+            "No. Telpon": "081233626259",
+            "Jabatan": ""
+        },
+        {
+            "No.": "59",
+            "NIP": "198910042019032023",
+            "Nama": "Retno Damayanti",
+            "Nama Gelar": "Retno Damayanti, S.Pd., M.T.",
+            "No. Telpon": "081231661779",
+            "Jabatan": ""
+        },
+        {
+            "No.": "60",
+            "NIP": "198603182012121001",
+            "Nama": "Ridwan Rismanto",
+            "Nama Gelar": "Ridwan Rismanto, S.ST., M.Kom.",
+            "No. Telpon": "085646313719",
+            "Jabatan": ""
+        },
+        {
+            "No.": "61",
+            "NIP": "199004102019092001",
+            "Nama": "Rizki Putri Ramadhani",
+            "Nama Gelar": "Rizki Putri Ramadhani, S.S., M.Pd.",
+            "No. Telpon": "081334622521",
+            "Jabatan": ""
+        },
+        {
+            "No.": "62",
+            "NIP": "190861226",
+            "Nama": "Robby Anggriawan",
+            "Nama Gelar": "Robby Anggriawan, S.E, M.E.",
+            "No. Telpon": "081217149200",
+            "Jabatan": ""
+        },
+        {
+            "No.": "63",
+            "NIP": "198903192019032013",
+            "Nama": "Rokhimatul Wakhidah",
+            "Nama Gelar": "Rokhimatul Wakhidah, S.Pd., M.T.",
+            "No. Telpon": "085646119031",
+            "Jabatan": ""
+        },
+        {
+            "No.": "65",
+            "NIP": "197111101999031002",
+            "Nama": "Rudy Ariyanto",
+            "Nama Gelar": "Rudy Ariyanto, S.T., M.Cs.",
+            "No. Telpon": "08123399764",
+            "Jabatan": ""
+        },
+        {
+            "No.": "66",
+            "NIP": "198910262023211020",
+            "Nama": "Satrio Binusa Suryadi",
+            "Nama Gelar": "Satrio Binusa Suryadi, S.S., M.Pd.",
+            "No. Telpon": "087859851381",
+            "Jabatan": ""
+        },
+        {
+            "No.": "67",
+            "NIP": "198909012019031010",
+            "Nama": "Septian Enggar Sukmana",
+            "Nama Gelar": "Septian Enggar Sukmana, S.Pd., M.T.",
+            "No. Telpon": "082233725411",
+            "Jabatan": ""
+        },
+        {
+            "No.": "68",
+            "NIP": "198507222014041001",
+            "Nama": "Shohib Muslim",
+            "Nama Gelar": "Dr. Shohib Muslim, S.H., M.Hum.",
+            "No. Telpon": "081553867003",
+            "Jabatan": ""
+        },
+        {
+            "No.": "69",
+            "NIP": "198908132019031017",
+            "Nama": "Sofyan Noor Arief",
+            "Nama Gelar": "Sofyan Noor Arief, S.ST., M.Kom.",
+            "No. Telpon": "085755730905",
+            "Jabatan": ""
+        },
+        {
+            "No.": "70",
+            "NIP": "198005142005022001",
+            "Nama": "Triana Fatmawati",
+            "Nama Gelar": "Triana Fatmawati, S.T., M.T.",
+            "No. Telpon": "081322856678",
+            "Jabatan": ""
+        },
+        {
+            "No.": "71",
+            "NIP": "197803272003122002",
+            "Nama": "Ulla Delfana Rosiani",
+            "Nama Gelar": "Dr. Ulla Delfana Rosiani, S.T., M.T.",
+            "No. Telpon": "08123383910",
+            "Jabatan": ""
+        },
+        {
+            "No.": "72",
+            "NIP": "198609232015041001",
+            "Nama": "Usman Nurhasan",
+            "Nama Gelar": "Usman Nurhasan, S.Kom., M.T.",
+            "No. Telpon": "082143246664",
+            "Jabatan": ""
+        },
+        {
+            "No.": "73",
+            "NIP": "199105052019031029",
+            "Nama": "Vipkas Al Hadid Firdaus",
+            "Nama Gelar": "Vipkas Al Hadid Firdaus, S.T, M.T.",
+            "No. Telpon": "085649450433",
+            "Jabatan": ""
+        },
+        {
+            "No.": "74",
+            "NIP": "198901092020122005",
+            "Nama": "Vit Zuraida",
+            "Nama Gelar": "Vit Zuraida, S.Kom., M.Kom.",
+            "No. Telpon": "089616940232",
+            "Jabatan": ""
+        },
+        {
+            "No.": "75",
+            "NIP": "199308112019032025",
+            "Nama": "Vivi Nur Wijayaningrum",
+            "Nama Gelar": "Vivi Nur Wijayaningrum, S.Kom., M.Kom.",
+            "No. Telpon": "085258728738",
+            "Jabatan": ""
+        },
+        {
+            "No.": "76",
+            "NIP": "199106212019032020",
+            "Nama": "Vivin Ayu Lestari",
+            "Nama Gelar": "Vivin Ayu Lestari, S.Pd., M.Kom.",
+            "No. Telpon": "082143964396",
+            "Jabatan": ""
+        },
+        {
+            "No.": "77",
+            "NIP": "198103182010122002",
+            "Nama": "Widaningsih Condrowardhani",
+            "Nama Gelar": "Dr. Widaningsih condrowardhani, S.Psi., S.H., M.H.",
+            "No. Telpon": "081803805595",
+            "Jabatan": ""
+        },
+        {
+            "No.": "78",
+            "NIP": "199208292019032023",
+            "Nama": "Wilda Imama Sabilla",
+            "Nama Gelar": "Wilda Imama Sabilla, S.Kom., M.Kom.",
+            "No. Telpon": "085649655285",
+            "Jabatan": ""
+        },
+        {
+            "No.": "79",
+            "NIP": "198101052005011005",
+            "Nama": "Yan Watequlis Syaifudin",
+            "Nama Gelar": "Yan Watequlis Syaifudin, S.T., M.MT., Ph.D.",
+            "No. Telpon": "082131552688",
+            "Jabatan": ""
+        },
+        {
+            "No.": "80",
+            "NIP": "198906212019031013",
+            "Nama": "Yoppy Yunhasnawa",
+            "Nama Gelar": "Yoppy Yunhasnawa, S.ST., M.Sc.",
+            "No. Telpon": "085755023455",
+            "Jabatan": ""
+        },
+        {
+            "No.": "81",
+            "NIP": "198007162010121002",
+            "Nama": "Yuri Ariyanto",
+            "Nama Gelar": "Yuri Ariyanto, S.Kom., M.Kom.",
+            "No. Telpon": "08563302542",
+            "Jabatan": ""
+        },
+        {
+            "No.": "82",
+            "NIP": "199005112019091000",
+            "Nama": "Zulmy Faqihuddin Putera",
+            "Nama Gelar": "Zulmy Faqihuddin Putera, S.Pd., M.Pd.",
+            "No. Telpon": "082234463936",
+            "Jabatan": ""
+        },
+        {
+            "No.": "1",
+            "NIP": "",
+            "Nama": "Ahsani Maulidina",
+            "Nama Gelar": "Ahsani Maulidina, S.Pd., M.Pd.",
+            "No. Telpon": "",
+            "Jabatan": ""
+        },
+        {
+            "No.": "2",
+            "NIP": "",
+            "Nama": "Amalia Agung Septarina",
+            "Nama Gelar": "Amalia Agung Septarina, S.S.T., M.Tr.T.",
+            "No. Telpon": "082234778840",
+            "Jabatan": ""
+        },
+        {
+            "No.": "3",
+            "NIP": "",
+            "Nama": "Ane Fany Novitasari",
+            "Nama Gelar": "Ane Fany Novitasari",
+            "No. Telpon": "0821-3268-2589",
+            "Jabatan": ""
+        },
+        {
+            "No.": "4",
+            "NIP": "",
+            "Nama": "Ariyanti",
+            "Nama Gelar": "Ariyanti, S.H., M.H., LL.M.",
+            "No. Telpon": "0899-5859-836",
+            "Jabatan": ""
+        },
+        {
+            "No.": "5",
+            "NIP": "",
+            "Nama": "Deasy Sandhya Elya Ekawati",
+            "Nama Gelar": "Deasy Sandhya Elya Ekawati, S.Si., M.Si.",
+            "No. Telpon": "0812-2141-4624",
+            "Jabatan": ""
+        },
+        {
+            "No.": "6",
+            "NIP": "",
+            "Nama": "Dian Wahyuningsih",
+            "Nama Gelar": "Dian Wahyuningsih, S.Kom., MMSI.",
+            "No. Telpon": "085755482039",
+            "Jabatan": ""
+        },
+        {
+            "No.": "7",
+            "NIP": "",
+            "Nama": "Dimas Wahyu Widarti",
+            "Nama Gelar": "Dinny Wahyu Widarti, S.Kom., MMSI.",
+            "No. Telpon": "0818536635",
+            "Jabatan": ""
+        },
+        {
+            "No.": "8",
+            "NIP": "",
+            "Nama": "Evi Fajrina Lova",
+            "Nama Gelar": "Evi Fajrina Lova",
+            "No. Telpon": "",
+            "Jabatan": ""
+        },
+        {
+            "No.": "9",
+            "NIP": "",
+            "Nama": "Mahmud Yunus",
+            "Nama Gelar": "Mahmud Yunus, S.Kom., M.Pd., M.T.",
+            "No. Telpon": "0818538101",
+            "Jabatan": ""
+        },
+        {
+            "No.": "10",
+            "NIP": "",
+            "Nama": "Peni Puspitasari",
+            "Nama Gelar": "Peni Puspitasari, S.Pd., M.Pd.",
+            "No. Telpon": "",
+            "Jabatan": ""
+        },
+        {
+            "No.": "11",
+            "NIP": "",
+            "Nama": "Priska Choirina",
+            "Nama Gelar": "Priska Choirina, S.S.T., M.Tr.T.",
+            "No. Telpon": "089515753004",
+            "Jabatan": ""
+        },
+        {
+            "No.": "12",
+            "NIP": "",
+            "Nama": "Renaldi Primaswara Prasetya",
+            "Nama Gelar": "Renaldi Primaswara Prasetya, S.Kom., M.Kom.",
+            "No. Telpon": "0895421623355",
+            "Jabatan": ""
+        },
+        {
+            "No.": "13",
+            "NIP": "",
+            "Nama": "Rizdania",
+            "Nama Gelar": "Rizdania. S.T., M.Kom.",
+            "No. Telpon": "0857-2018-7017",
+            "Jabatan": ""
+        },
+        {
+            "No.": "14",
+            "NIP": "",
+            "Nama": "Samsul Arifin",
+            "Nama Gelar": "Samsul Arifin, S.Kom., MMSI.",
+            "No. Telpon": "083834797949",
+            "Jabatan": ""
+        },
+        {
+            "No.": "15",
+            "NIP": "",
+            "Nama": "Titis Agunging Tyas",
+            "Nama Gelar": "Titis Agunging Tyas",
+            "No. Telpon": "",
+            "Jabatan": ""
+        },
+        {
+            "No.": "16",
+            "NIP": "",
+            "Nama": "Yusriel Ardian",
+            "Nama Gelar": "Yusriel Ardian, S,Kom., M.Kom",
+            "No. Telpon": "0812-3506-0675",
+            "Jabatan": ""
+        }
+    ],
+    "Admin": [
+        {
+            "No.": "1",
+            "Jabatan": "Admin Jurusan",
+            "Nama": "Danin, S.AP.",
+            "Ruang": "Ketua dan Sekretaris Jurusan",
+            "No. Telpon": "0857-9207-9623",
+            "Keperluan": "1. Legalisir Ketua Jurusan\n2. TTD Ketua Jurusan\n3. Peminjaman Ruang\n4. Surat Pengantar Magang/PKL/Observasi Tugas Akhir\n5. SKL TA"
+        },
+        {
+            "No.": "2",
+            "Jabatan": "Akademik D4 SIB",
+            "Nama": "Titis Octary Satrio, S.ST.",
+            "Ruang": "KPS dan Admin Lantai 6",
+            "No. Telpon": "0857-9068-6586",
+            "Keperluan": "1. Transkrip Nilai Sementara\n2. Validasi Data dan Foto Ijazah\n3. Pelaporan PDDIKTI"
+        },
+        {
+            "No.": "3",
+            "Jabatan": "Akademik D4 TI",
+            "Nama": "Ana Agustina, S.M.",
+            "Ruang": "KPS dan Admin Lantai 6",
+            "No. Telpon": "0856-4649-2960",
+            "Keperluan": ""
+        },
+        {
+            "No.": "4",
+            "Jabatan": "Program Studi D4 SIB",
+            "Nama": "Lailatul Qodriyah, S.Sos.",
+            "Ruang": "KPS dan Admin Lantai 6",
+            "No. Telpon": "0812-3224-5969\n0816-5497-5095",
+            "Keperluan": "1. Jadwal Perkuliahan (Setting Kelas dan Pengajar)\n2. Presensi\n3. Activity Control\n4. Kompen\n5. Pengumpulan KRS\n6. Reset Password SIAKAD\n7. Pengambilan/Peminjaman Spidol/Penghapus"
+        },
+        {
+            "No.": "5",
+            "Jabatan": "Program Studi D4 TI",
+            "Nama": "Sri Whariyanti, S.Pd.",
+            "Ruang": "KPS dan Admin Lantai 6",
+            "No. Telpon": "0838-0066-6233",
+            "Keperluan": ""
+        },
+        {
+            "No.": "6",
+            "Jabatan": "Ruang Baca",
+            "Nama": "Mariska Dwitya Adilasari, A.Md.",
+            "Ruang": "Ruang Baca",
+            "No. Telpon": "0822-3420-0215",
+            "Keperluan": "Pengumpulan/Peminjaman Buku"
+        },
+        {
+            "No.": "7",
+            "Jabatan": "Ruang Baca",
+            "Nama": "Roszyhana Hadi Untari, S.Pd.",
+            "Ruang": "Ruang Baca",
+            "No. Telpon": "0813-3342-0146",
+            "Keperluan": ""
+        },
+        {
+            "No.": "8",
+            "Jabatan": "Teknisi Lantai 5",
+            "Nama": "Dwi Atmo Nugrogo, S.T.",
+            "Ruang": "Teknisi Lantai 5",
+            "No. Telpon": "0813-3535-3884",
+            "Keperluan": ""
+        },
+        {
+            "No.": "9",
+            "Jabatan": "Teknisi Lantai 5",
+            "Nama": "Mulyo Prasetyo, S.E.",
+            "Ruang": "Teknisi Lantai 5",
+            "No. Telpon": "0821-4148-8964",
+            "Keperluan": ""
+        },
+        {
+            "No.": "10",
+            "Jabatan": "Teknisi Lantai 7",
+            "Nama": "Anggi Putra Woon Pratama, A.Md.",
+            "Ruang": "Teknisi Lantai 7",
+            "No. Telpon": "0895-6305-05222",
+            "Keperluan": "Bebas Tanggungan Jurusan (Alumni D4 TI)"
+        },
+        {
+            "No.": "11",
+            "Jabatan": "Teknisi Lantai 7",
+            "Nama": "Sujadi",
+            "Ruang": "Teknisi Lantai 7",
+            "No. Telpon": "0813-3269-2590",
+            "Keperluan": ""
+        },
+        {
+            "No.": "12",
+            "Jabatan": "Admin BMN",
+            "Nama": "Widya Novy Nuraeny, A.Md.",
+            "Ruang": "Teknisi Lantai 7",
+            "No. Telpon": "0822-3286-7789",
+            "Keperluan": "Bebas Tanggungan Jurusan (Alumni D4 SIB dan D3 MI)"
+        },
+        {
+            "No.": "13",
+            "Jabatan": "Pramu Bakti",
+            "Nama": "Irfan Rudiyanto",
+            "Ruang": "Sebelah Toilet Wanita Lantai 6",
+            "No. Telpon": "0838-4432-3322",
+            "Keperluan": ""
+        }
+    ],
+    "Pusat": [
+        {
+            "No.": "1",
+            "Jabatan": "Admin UPA Bahasa",
+            "Nama": "Desy Dwi",
+            "Ruang": "Grapol Lantai 3",
+            "No. Telpon": "0813-3313-5526",
+            "Keperluan": "TOEIC"
+        },
+        {
+            "No.": "2",
+            "Jabatan": "Admin KJM/P2MPP",
+            "Nama": "Masfufah",
+            "Ruang": "Grapol Lantai 3",
+            "No. Telpon": "0813-3448-8927",
+            "Keperluan": "Kuesioner"
+        },
+        {
+            "No.": "3",
+            "Jabatan": "Layanan Akademik Pusat",
+            "Nama": "Garnis Anggi Saktiani, S.AB., M.AB.",
+            "Ruang": "Gedung AW",
+            "No. Telpon": "0812-1644-6464",
+            "Keperluan": "1. Permohonan Ijazah Salah\n2. Surat Ket. Kematian\n3. Permohonan Cuti\n4. Permohonan Mengundurkan Diri\n5. Surat Ket. Prodi Serumpun"
+        },
+        {
+            "No.": "4",
+            "Jabatan": "Layanan Akademik Pusat",
+            "Nama": "Kiki Selvia Putri, A.Md.",
+            "Ruang": "Gedung AW",
+            "No. Telpon": "0855-7934-692",
+            "Keperluan": "1. Surat Ket. Kuliah (SKK)\n2. Surat Model C\n3. KTM Hilang / Rusak\n4. Perubahan Data Mahasiswa"
+        },
+        {
+            "No.": "5",
+            "Jabatan": "Layanan Akademik Pusat",
+            "Nama": "Sulfiyanti Indrayani. A.Md.",
+            "Ruang": "Gedung AW",
+            "No. Telpon": "0896-8455-7666",
+            "Keperluan": "1. Surat Ket. Lulus Administrasi (SKLA)\n2. Surat Ket. UKT\n3. Surat Pernah Kuliah\n4. Pembayaran UKT"
+        },
+        {
+            "No.": "6",
+            "Jabatan": "Layanan Akademik Pusat",
+            "Nama": "Merry Putri Prastiwi, S.ST.",
+            "Ruang": "Gedung AW",
+            "No. Telpon": "0822-4772-3596",
+            "Keperluan": "1. Konsultasi dan Pengaduan\n2. Bebas Tanggungan\n3. Surat Alumni\n4. Permohonan Ijazah Hilang"
+        },
+        {
+            "No.": "7",
+            "Jabatan": "Layanan Akademik Pusat",
+            "Nama": "Hendra",
+            "Ruang": "Gedung AW",
+            "No. Telpon": "0856-5585-8432",
+            "Keperluan": "Legalisir Ijazah"
+        }
+    ]
+}
