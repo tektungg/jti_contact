@@ -3,20 +3,35 @@ body {
   background: #f7f7fb;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 .container {
   max-width: 1500px;
-  margin: 40px auto;
+  margin: 20px auto;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-  padding: 32px 24px;
+  padding: 24px 16px;
 }
 
 h1 {
   font-size: 2.2rem;
   margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .container {
+    margin: 10px;
+    padding: 20px 12px;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
 }
 
 .tabs {
@@ -24,11 +39,13 @@ h1 {
   gap: 8px;
   margin-bottom: 24px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .tab-btn {
   flex: 1;
-  padding: 12px 0;
+  min-width: 120px;
+  padding: 12px 16px;
   background: #f0f0f7;
   border: none;
   border-radius: 8px 8px 0 0;
@@ -36,6 +53,28 @@ h1 {
   cursor: pointer;
   transition: background 0.2s;
   font-weight: 500;
+  text-align: center;
+}
+
+.tab-btn.active {
+  background: #4f8a8b;
+  color: #fff;
+}
+
+/* Mobile Tabs */
+@media (max-width: 768px) {
+  .tabs {
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .tab-btn {
+    flex: 1;
+    min-width: auto;
+    padding: 10px 8px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
 }
 
 .tab-btn.active {
@@ -64,7 +103,45 @@ h1 {
 .contact-list {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* Responsive Grid - Improved */
+@media (max-width: 480px) {
+  .contact-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .container {
+    margin: 5px;
+    padding: 16px 10px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .contact-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contact-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .contact-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1401px) {
+  .contact-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .card {
@@ -76,6 +153,47 @@ h1 {
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Card Layout - Enhanced */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 12px;
+  }
+
+  .card-info {
+    text-align: left;
+  }
+
+  .hubungi-btn {
+    align-self: stretch;
+    justify-content: center;
+    padding: 14px 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 480px) {
+  .card {
+    padding: 14px 10px;
+    gap: 10px;
+  }
+
+  .hubungi-btn {
+    padding: 16px;
+    font-size: 1.2rem;
+  }
 }
 
 .card-info {
@@ -91,6 +209,33 @@ h1 {
   font-size: 1.08rem;
   word-break: break-word;
   margin-bottom: 2px;
+  line-height: 1.3;
+}
+
+/* Mobile Typography */
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .card-jabatan {
+    font-size: 0.9rem;
+  }
+
+  .card-ruang {
+    font-size: 0.85rem;
+  }
+
+  .card-phone {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .card-keperluan {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
 }
 
 .card-jabatan {
@@ -141,6 +286,125 @@ h1 {
   color: #888;
   margin-top: 32px;
   font-size: 1rem;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    padding-top: 20px;
+  }
+}
+
+/* Utility Classes for Responsive */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.loading::after {
+  content: "⏳ Memuat data...";
+}
+
+/* Error State */
+.error {
+  text-align: center;
+  padding: 20px;
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  color: #856404;
+  margin: 20px 0;
+}
+
+/* Empty State */
+.empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #888;
+}
+
+.empty::after {
+  content: "📝 Tidak ada kontak yang ditemukan";
+}
+
+/* Smooth Scrolling and Enhanced Interactions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improved Hover Effects */
+.hubungi-btn:hover {
+  background: #1da851;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+}
+
+.tab-btn:hover:not(.active) {
+  background: #e8e8f0;
+  transform: translateY(-1px);
+}
+
+/* Touch-friendly Improvements */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  .hubungi-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .tab-btn:hover {
+    transform: none;
+  }
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.tab-btn:focus,
+.hubungi-btn:focus,
+#search-input:focus,
+.reload-btn:focus {
+  outline: 2px solid #4f8a8b;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid #333;
+  }
+
+  .tab-btn.active {
+    border: 2px solid #333;
+  }
 }
 
 .icon {
@@ -148,4 +412,108 @@ h1 {
   vertical-align: middle;
   margin-right: 4px;
   color: #4f8a8b;
+}
+
+/* Search Input Responsive */
+#search-container {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+#search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: #4f8a8b;
+  box-shadow: 0 0 0 3px rgba(79, 138, 139, 0.1);
+}
+
+@media (max-width: 768px) {
+  #search-container {
+    margin-bottom: 16px;
+  }
+
+  #search-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 14px 16px;
+    border-radius: 6px;
+  }
+}
+
+/* Form Elements Responsive */
+.upload-section {
+  margin-bottom: 12px;
+}
+
+.upload-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.upload-section input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.upload-section input[type="file"]:hover {
+  border-color: #4f8a8b;
+}
+
+.upload-section p {
+  margin: 8px 0 0 0;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.reload-btn {
+  margin-top: 8px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.reload-btn:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .upload-section {
+    margin-bottom: 16px;
+  }
+
+  .upload-section label {
+    font-size: 1rem;
+  }
+
+  .upload-section p {
+    font-size: 0.9rem;
+  }
+
+  .reload-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    width: 100%;
+  }
 }
