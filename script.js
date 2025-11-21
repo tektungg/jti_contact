@@ -13,6 +13,20 @@ let currentPage = {
   pusat: 1,
 };
 
+// Security: HTML escape function to prevent XSS
+function escapeHtml(text) {
+  if (text === null || text === undefined) return "";
+  const div = document.createElement("div");
+  div.textContent = String(text);
+  return div.innerHTML;
+}
+
+// Security: Sanitize phone number (only allow digits and +)
+function sanitizePhone(phone) {
+  if (!phone) return "";
+  return String(phone).replace(/[^\d+]/g, "");
+}
+
 // Render kontak ke tab dengan Tailwind classes dan pagination
 function renderContacts(tab, contacts) {
   const container = document.getElementById(tab);
@@ -45,7 +59,7 @@ function renderContacts(tab, contacts) {
             <!-- Contact Info -->
             <div class="flex-1 mb-4">
               <h3 class="font-semibold text-gray-800 text-lg leading-tight mb-2 group-hover:text-primary-500 transition-colors">
-                ${c.nama}
+                ${escapeHtml(c.nama)}
               </h3>
               ${
                 c.jabatan
@@ -53,7 +67,7 @@ function renderContacts(tab, contacts) {
                       <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                       </svg>
-                      <span>${c.jabatan}</span>
+                      <span>${escapeHtml(c.jabatan)}</span>
                     </div>`
                   : ""
               }
@@ -64,7 +78,7 @@ function renderContacts(tab, contacts) {
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                       </svg>
-                      <span>${c.ruang}</span>
+                      <span>${escapeHtml(c.ruang)}</span>
                     </div>`
                   : ""
               }
@@ -72,25 +86,25 @@ function renderContacts(tab, contacts) {
                 <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                 </svg>
-                <span class="font-medium">${c.noWA}</span>
+                <span class="font-medium">${escapeHtml(c.noWA)}</span>
               </div>
               ${
                 c.keperluan
                   ? `<div class="mt-2 text-xs text-gray-400 italic line-clamp-2">
-                      ${
+                      ${escapeHtml(
                         c.keperluan.length > 60
                           ? c.keperluan.substring(0, 60) + "..."
                           : c.keperluan
-                      }
+                      )}
                     </div>`
                   : ""
               }
             </div>
 
-            <!-- WhatsApp Button -->
+            <!-- WhatsApp Button - Using data attribute for security -->
             <button
-              onclick="hubungi('${c.noWA}')"
-              class="w-full flex items-center justify-center gap-2 bg-whatsapp hover:bg-green-600 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 hover:shadow-md hover:shadow-green-500/20"
+              data-phone="${escapeHtml(sanitizePhone(c.noWA))}"
+              class="hubungi-btn w-full flex items-center justify-center gap-2 bg-whatsapp hover:bg-green-600 text-white font-medium py-3 px-4 rounded-lg transition-all duration-200 hover:shadow-md hover:shadow-green-500/20"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -110,6 +124,16 @@ function renderContacts(tab, contacts) {
         : ""
     }
   `;
+
+  // Event delegation for hubungi buttons (more secure than inline onclick)
+  container.querySelectorAll(".hubungi-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const phone = this.getAttribute("data-phone");
+      if (phone) {
+        hubungi(phone);
+      }
+    });
+  });
 }
 
 // Render pagination controls
@@ -146,6 +170,9 @@ function renderPagination(tab, currentPageNum, totalPages, totalItems) {
     }
   }
 
+  // Escape tab name for use in data attribute
+  const safeTab = escapeHtml(tab);
+
   return `
     <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <!-- Info -->
@@ -157,9 +184,10 @@ function renderPagination(tab, currentPageNum, totalPages, totalItems) {
       <div class="flex items-center gap-1">
         <!-- Previous Button -->
         <button
-          onclick="goToPage('${tab}', ${currentPageNum - 1})"
+          data-tab="${safeTab}"
+          data-page="${currentPageNum - 1}"
           ${currentPageNum === 1 ? "disabled" : ""}
-          class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
+          class="pagination-btn w-10 h-10 flex items-center justify-center rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -175,8 +203,9 @@ function renderPagination(tab, currentPageNum, totalPages, totalItems) {
             const isActive = num === currentPageNum;
             return `
             <button
-              onclick="goToPage('${tab}', ${num})"
-              class="w-10 h-10 flex items-center justify-center rounded-lg border transition-all duration-200 ${
+              data-tab="${safeTab}"
+              data-page="${num}"
+              class="pagination-btn w-10 h-10 flex items-center justify-center rounded-lg border transition-all duration-200 ${
                 isActive
                   ? "bg-primary-500 border-primary-500 text-white font-medium"
                   : "border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
@@ -190,9 +219,10 @@ function renderPagination(tab, currentPageNum, totalPages, totalItems) {
 
         <!-- Next Button -->
         <button
-          onclick="goToPage('${tab}', ${currentPageNum + 1})"
+          data-tab="${safeTab}"
+          data-page="${currentPageNum + 1}"
           ${currentPageNum === totalPages ? "disabled" : ""}
-          class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
+          class="pagination-btn w-10 h-10 flex items-center justify-center rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -201,6 +231,20 @@ function renderPagination(tab, currentPageNum, totalPages, totalItems) {
       </div>
     </div>
   `;
+}
+
+// Setup pagination event listeners (called after render)
+function setupPaginationListeners(container) {
+  container.querySelectorAll(".pagination-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      if (this.disabled) return;
+      const tab = this.getAttribute("data-tab");
+      const page = parseInt(this.getAttribute("data-page"), 10);
+      if (tab && !isNaN(page)) {
+        goToPage(tab, page);
+      }
+    });
+  });
 }
 
 // Go to specific page
@@ -212,6 +256,10 @@ function goToPage(tab, page) {
 
   currentPage[tab] = page;
   renderContacts(tab, contacts);
+
+  // Setup pagination listeners after render
+  const container = document.getElementById(tab);
+  setupPaginationListeners(container);
 }
 
 // Get filtered contacts for current tab
@@ -236,15 +284,26 @@ function renderFilteredContacts(tab, keyword) {
       )
     : contacts;
   renderContacts(tab, filtered);
+
+  // Setup pagination listeners after render
+  const container = document.getElementById(tab);
+  setupPaginationListeners(container);
 }
 
 // Format nomor WA dan buka WhatsApp
 function hubungi(noWA) {
-  let formatted = noWA.trim();
+  // Sanitize input - only allow digits
+  let formatted = sanitizePhone(noWA);
+  if (!formatted) return;
+
   if (formatted.startsWith("0")) {
     formatted = "62" + formatted.slice(1);
   }
-  window.open(`https://wa.me/${formatted}`, "_blank");
+
+  // Validate it looks like a phone number
+  if (!/^\d{10,15}$/.test(formatted)) return;
+
+  window.open(`https://wa.me/${formatted}`, "_blank", "noopener,noreferrer");
 }
 
 // Excel upload handler - Enhanced untuk multiple worksheets
@@ -257,8 +316,6 @@ function handleExcelUpload(e) {
     const dataExcel = new Uint8Array(evt.target.result);
     const workbook = XLSX.read(dataExcel, { type: "array" });
 
-    console.log("📊 Worksheets ditemukan:", workbook.SheetNames);
-
     // Reset data
     data.dosen = [];
     data.admin = [];
@@ -270,8 +327,6 @@ function handleExcelUpload(e) {
       const json = XLSX.utils.sheet_to_json(sheet);
 
       if (json.length === 0) return;
-
-      console.log(`📋 Sheet "${sheetName}":`, json);
 
       // Deteksi kategori berdasarkan nama sheet
       const sheetLower = sheetName.toLowerCase();
@@ -350,11 +405,11 @@ function handleExcelUpload(e) {
 
           return {
             id: `${targetCategory}_${data[targetCategory].length + idx + 1}`,
-            nama: nama.toString().trim(),
-            noWA: noWA.toString().trim(),
-            jabatan: jabatan.toString().trim(),
-            ruang: ruang.toString().trim(),
-            keperluan: keperluan.toString().trim(),
+            nama: String(nama).trim(),
+            noWA: String(noWA).trim(),
+            jabatan: String(jabatan).trim(),
+            ruang: String(ruang).trim(),
+            keperluan: String(keperluan).trim(),
           };
         })
         .filter((item) => item.nama && item.noWA); // Filter data yang valid
@@ -375,7 +430,7 @@ function handleExcelUpload(e) {
 
     // Tampilkan notifikasi sukses
     alert(
-      `✅ Data berhasil dimuat!\n\nDosen: ${data.dosen.length} kontak\nAdmin: ${data.admin.length} kontak\nPusat: ${data.pusat.length} kontak`
+      `Data berhasil dimuat!\n\nDosen: ${data.dosen.length} kontak\nAdmin: ${data.admin.length} kontak\nPusat: ${data.pusat.length} kontak`
     );
   };
   reader.readAsArrayBuffer(file);
@@ -413,6 +468,9 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.remove("text-gray-500", "border-transparent");
 
       const tab = this.getAttribute("data-tab");
+      // Validate tab name
+      if (!["dosen", "admin", "pusat"].includes(tab)) return;
+
       activeTab = tab;
 
       // Hide all tab contents
@@ -462,8 +520,6 @@ async function loadContactsFromJSON() {
     if (response.ok) {
       const jsonData = await response.json();
 
-      console.log("📊 Loading data from contacts.json...");
-
       // Reset data
       data.dosen = [];
       data.admin = [];
@@ -473,11 +529,11 @@ async function loadContactsFromJSON() {
       if (jsonData.Dosen && Array.isArray(jsonData.Dosen)) {
         data.dosen = jsonData.Dosen.map((item, idx) => ({
           id: `dosen_${idx + 1}`,
-          nama: item["Nama Gelar"] || item.Nama || "",
-          noWA: item["No. Telpon"] || item.NoWA || "",
-          jabatan: item.Jabatan || "",
-          ruang: item.Ruang || "",
-          keperluan: item.Keperluan || "",
+          nama: String(item["Nama Gelar"] || item.Nama || "").trim(),
+          noWA: String(item["No. Telpon"] || item.NoWA || "").trim(),
+          jabatan: String(item.Jabatan || "").trim(),
+          ruang: String(item.Ruang || "").trim(),
+          keperluan: String(item.Keperluan || "").trim(),
         })).filter((item) => item.nama && item.noWA);
       }
 
@@ -485,11 +541,11 @@ async function loadContactsFromJSON() {
       if (jsonData.Admin && Array.isArray(jsonData.Admin)) {
         data.admin = jsonData.Admin.map((item, idx) => ({
           id: `admin_${idx + 1}`,
-          nama: item.Nama || item["Nama Lengkap"] || "",
-          noWA: item["No. Telpon"] || item.NoWA || "",
-          jabatan: item.Jabatan || "",
-          ruang: item.Ruang || "",
-          keperluan: item.Keperluan || "",
+          nama: String(item.Nama || item["Nama Lengkap"] || "").trim(),
+          noWA: String(item["No. Telpon"] || item.NoWA || "").trim(),
+          jabatan: String(item.Jabatan || "").trim(),
+          ruang: String(item.Ruang || "").trim(),
+          keperluan: String(item.Keperluan || "").trim(),
         })).filter((item) => item.nama && item.noWA);
       }
 
@@ -497,31 +553,20 @@ async function loadContactsFromJSON() {
       if (jsonData.Pusat && Array.isArray(jsonData.Pusat)) {
         data.pusat = jsonData.Pusat.map((item, idx) => ({
           id: `pusat_${idx + 1}`,
-          nama: item.Nama || item["Nama Layanan"] || "",
-          noWA: item["No. Telpon"] || item.NoWA || "",
-          jabatan: item.Jabatan || "",
-          ruang: item.Ruang || "",
-          keperluan: item.Keperluan || "",
+          nama: String(item.Nama || item["Nama Layanan"] || "").trim(),
+          noWA: String(item["No. Telpon"] || item.NoWA || "").trim(),
+          jabatan: String(item.Jabatan || "").trim(),
+          ruang: String(item.Ruang || "").trim(),
+          keperluan: String(item.Keperluan || "").trim(),
         })).filter((item) => item.nama && item.noWA);
       }
 
       // Update tab counters
       updateTabCounters();
-
-      console.log(
-        `✅ Data berhasil dimuat dari contacts.json!\nDosen: ${data.dosen.length} kontak\nAdmin: ${data.admin.length} kontak\nPusat: ${data.pusat.length} kontak`
-      );
     } else {
-      console.log(
-        "📄 File contacts.json tidak ditemukan, menggunakan data default"
-      );
       loadDefaultData();
     }
   } catch (error) {
-    console.log(
-      "📄 Error loading contacts.json, menggunakan data default:",
-      error.message
-    );
     loadDefaultData();
   }
 }
@@ -592,29 +637,38 @@ function loadDefaultData() {
   ];
 
   updateTabCounters();
-  console.log("📄 Data default dimuat");
 }
 
 // Update tab counters dengan Tailwind styling
 function updateTabCounters() {
-  document.querySelector('[data-tab="dosen"]').innerHTML = `
-    <span class="flex items-center justify-center gap-2">
-      <span class="text-lg">👨‍🏫</span>
-      <span>Dosen <span class="hidden sm:inline">(${data.dosen.length})</span></span>
-    </span>
-  `;
-  document.querySelector('[data-tab="admin"]').innerHTML = `
-    <span class="flex items-center justify-center gap-2">
-      <span class="text-lg">👩‍💼</span>
-      <span>Admin <span class="hidden sm:inline">(${data.admin.length})</span></span>
-    </span>
-  `;
-  document.querySelector('[data-tab="pusat"]').innerHTML = `
-    <span class="flex items-center justify-center gap-2">
-      <span class="text-lg">🏢</span>
-      <span>Pusat <span class="hidden sm:inline">(${data.pusat.length})</span></span>
-    </span>
-  `;
+  const dosenTab = document.querySelector('[data-tab="dosen"]');
+  const adminTab = document.querySelector('[data-tab="admin"]');
+  const pusatTab = document.querySelector('[data-tab="pusat"]');
+
+  if (dosenTab) {
+    dosenTab.innerHTML = `
+      <span class="flex items-center justify-center gap-2">
+        <span class="text-lg">👨‍🏫</span>
+        <span>Dosen <span class="hidden sm:inline">(${data.dosen.length})</span></span>
+      </span>
+    `;
+  }
+  if (adminTab) {
+    adminTab.innerHTML = `
+      <span class="flex items-center justify-center gap-2">
+        <span class="text-lg">👩‍💼</span>
+        <span>Admin <span class="hidden sm:inline">(${data.admin.length})</span></span>
+      </span>
+    `;
+  }
+  if (pusatTab) {
+    pusatTab.innerHTML = `
+      <span class="flex items-center justify-center gap-2">
+        <span class="text-lg">🏢</span>
+        <span>Pusat <span class="hidden sm:inline">(${data.pusat.length})</span></span>
+      </span>
+    `;
+  }
 }
 
 // Function to reload data from JSON (accessible from HTML)
@@ -623,10 +677,8 @@ async function reloadContactsFromJSON() {
   currentPage = { dosen: 1, admin: 1, pusat: 1 };
   const keyword = document.getElementById("search-input").value;
   renderFilteredContacts(activeTab, keyword);
-  alert("✅ Data berhasil dimuat ulang dari contacts.json!");
+  alert("Data berhasil dimuat ulang dari contacts.json!");
 }
 
-// Make functions globally accessible
-window.hubungi = hubungi;
-window.goToPage = goToPage;
+// Make functions globally accessible (minimal exposure)
 window.reloadContactsFromJSON = reloadContactsFromJSON;
