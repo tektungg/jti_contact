@@ -6,10 +6,21 @@ let data = {
 };
 
 let activeTab = "dosen";
+const ITEMS_PER_PAGE = 9;
+let currentPage = {
+  dosen: 1,
+  admin: 1,
+  pusat: 1,
+};
 
-// Render kontak ke tab dengan Tailwind classes
+// Render kontak ke tab dengan Tailwind classes dan pagination
 function renderContacts(tab, contacts) {
   const container = document.getElementById(tab);
+  const totalPages = Math.ceil(contacts.length / ITEMS_PER_PAGE);
+  const page = currentPage[tab];
+  const startIndex = (page - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedContacts = contacts.slice(startIndex, endIndex);
 
   if (contacts.length === 0) {
     container.innerHTML = `
@@ -26,7 +37,7 @@ function renderContacts(tab, contacts) {
 
   container.innerHTML = `
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      ${contacts
+      ${paginatedContacts
         .map(
           (c) => `
         <div class="group bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-xl p-5 hover:shadow-lg hover:shadow-primary-500/10 hover:border-primary-200 transition-all duration-300 hover:-translate-y-1">
@@ -66,7 +77,11 @@ function renderContacts(tab, contacts) {
               ${
                 c.keperluan
                   ? `<div class="mt-2 text-xs text-gray-400 italic line-clamp-2">
-                      ${c.keperluan.length > 60 ? c.keperluan.substring(0, 60) + "..." : c.keperluan}
+                      ${
+                        c.keperluan.length > 60
+                          ? c.keperluan.substring(0, 60) + "..."
+                          : c.keperluan
+                      }
                     </div>`
                   : ""
               }
@@ -88,11 +103,137 @@ function renderContacts(tab, contacts) {
         )
         .join("")}
     </div>
+
+    ${
+      totalPages > 1
+        ? renderPagination(tab, page, totalPages, contacts.length)
+        : ""
+    }
   `;
+}
+
+// Render pagination controls
+function renderPagination(tab, currentPageNum, totalPages, totalItems) {
+  const startItem = (currentPageNum - 1) * ITEMS_PER_PAGE + 1;
+  const endItem = Math.min(currentPageNum * ITEMS_PER_PAGE, totalItems);
+
+  // Generate page numbers
+  let pageNumbers = [];
+  if (totalPages <= 5) {
+    pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+  } else {
+    if (currentPageNum <= 3) {
+      pageNumbers = [1, 2, 3, 4, "...", totalPages];
+    } else if (currentPageNum >= totalPages - 2) {
+      pageNumbers = [
+        1,
+        "...",
+        totalPages - 3,
+        totalPages - 2,
+        totalPages - 1,
+        totalPages,
+      ];
+    } else {
+      pageNumbers = [
+        1,
+        "...",
+        currentPageNum - 1,
+        currentPageNum,
+        currentPageNum + 1,
+        "...",
+        totalPages,
+      ];
+    }
+  }
+
+  return `
+    <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <!-- Info -->
+      <div class="text-sm text-gray-500">
+        Menampilkan <span class="font-medium text-gray-700">${startItem}-${endItem}</span> dari <span class="font-medium text-gray-700">${totalItems}</span> kontak
+      </div>
+
+      <!-- Pagination Controls -->
+      <div class="flex items-center gap-1">
+        <!-- Previous Button -->
+        <button
+          onclick="goToPage('${tab}', ${currentPageNum - 1})"
+          ${currentPageNum === 1 ? "disabled" : ""}
+          class="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <!-- Page Numbers -->
+        ${pageNumbers
+          .map((num) => {
+            if (num === "...") {
+              return `<span class="px-3 py-2 text-gray-400">...</span>`;
+            }
+            const isActive = num === currentPageNum;
+            return `
+            <button
+              onclick="goToPage('${tab}', ${num})"
+              class="px-3 py-2 rounded-lg border transition-all duration-200 ${
+                isActive
+                  ? "bg-primary-500 border-primary-500 text-white font-medium"
+                  : "border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
+              }"
+            >
+              ${num}
+            </button>
+          `;
+          })
+          .join("")}
+
+        <!-- Next Button -->
+        <button
+          onclick="goToPage('${tab}', ${currentPageNum + 1})"
+          ${currentPageNum === totalPages ? "disabled" : ""}
+          class="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+// Go to specific page
+function goToPage(tab, page) {
+  const contacts = getFilteredContacts(tab);
+  const totalPages = Math.ceil(contacts.length / ITEMS_PER_PAGE);
+
+  if (page < 1 || page > totalPages) return;
+
+  currentPage[tab] = page;
+  renderContacts(tab, contacts);
+
+  // Scroll to top of content
+  document
+    .getElementById(tab)
+    .scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// Get filtered contacts for current tab
+function getFilteredContacts(tab) {
+  const keyword = document.getElementById("search-input").value;
+  const contacts = data[tab];
+  return keyword
+    ? contacts.filter((c) =>
+        c.nama.toLowerCase().includes(keyword.toLowerCase())
+      )
+    : contacts;
 }
 
 // Fungsi render kontak dengan filter
 function renderFilteredContacts(tab, keyword) {
+  // Reset to page 1 when filtering
+  currentPage[tab] = 1;
   const contacts = data[tab];
   const filtered = keyword
     ? contacts.filter((c) =>
@@ -230,6 +371,9 @@ function handleExcelUpload(e) {
     // Update tab counters
     updateTabCounters();
 
+    // Reset pagination
+    currentPage = { dosen: 1, admin: 1, pusat: 1 };
+
     // Render ulang tab aktif
     const keyword = document.getElementById("search-input").value;
     renderFilteredContacts(activeTab, keyword);
@@ -255,19 +399,31 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function () {
       // Remove active state from all tabs
       document.querySelectorAll(".tab-btn").forEach((b) => {
-        b.classList.remove("active", "text-primary-500", "border-primary-500", "bg-primary-50/50");
+        b.classList.remove(
+          "active",
+          "text-primary-500",
+          "border-primary-500",
+          "bg-primary-50/50"
+        );
         b.classList.add("text-gray-500", "border-transparent");
       });
 
       // Add active state to clicked tab
-      this.classList.add("active", "text-primary-500", "border-primary-500", "bg-primary-50/50");
+      this.classList.add(
+        "active",
+        "text-primary-500",
+        "border-primary-500",
+        "bg-primary-50/50"
+      );
       this.classList.remove("text-gray-500", "border-transparent");
 
       const tab = this.getAttribute("data-tab");
       activeTab = tab;
 
       // Hide all tab contents
-      document.querySelectorAll(".tab-content").forEach((tc) => tc.classList.remove("active"));
+      document
+        .querySelectorAll(".tab-content")
+        .forEach((tc) => tc.classList.remove("active"));
 
       // Show selected tab content
       document.getElementById(tab).classList.add("active");
@@ -279,9 +435,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Set initial active tab styling
-  const initialActiveTab = document.querySelector('.tab-btn.active');
+  const initialActiveTab = document.querySelector(".tab-btn.active");
   if (initialActiveTab) {
-    initialActiveTab.classList.add("text-primary-500", "border-primary-500", "bg-primary-50/50");
+    initialActiveTab.classList.add(
+      "text-primary-500",
+      "border-primary-500",
+      "bg-primary-50/50"
+    );
     initialActiveTab.classList.remove("text-gray-500", "border-transparent");
   }
 
@@ -465,6 +625,7 @@ function updateTabCounters() {
 // Function to reload data from JSON (accessible from HTML)
 async function reloadContactsFromJSON() {
   await loadContactsFromJSON();
+  currentPage = { dosen: 1, admin: 1, pusat: 1 };
   const keyword = document.getElementById("search-input").value;
   renderFilteredContacts(activeTab, keyword);
   alert("✅ Data berhasil dimuat ulang dari contacts.json!");
@@ -472,4 +633,5 @@ async function reloadContactsFromJSON() {
 
 // Make functions globally accessible
 window.hubungi = hubungi;
+window.goToPage = goToPage;
 window.reloadContactsFromJSON = reloadContactsFromJSON;
