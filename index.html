@@ -4,112 +4,206 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Direktori Kontak JTI Polinema</title>
-    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#f5f3ff",
+                100: "#ede9fe",
+                200: "#ddd6fe",
+                300: "#c4b5fd",
+                400: "#a78bfa",
+                500: "#2d2766",
+                600: "#252052",
+                700: "#1d1a3e",
+                800: "#15132a",
+                900: "#0d0c16",
+              },
+              whatsapp: "#25d366",
+            },
+            fontFamily: {
+              sans: ["Inter", "Segoe UI", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.3s ease-out;
+      }
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+      }
+    </style>
   </head>
-  <body>
-    <div class="container">
-      <div class="text-center" style="margin-bottom: 24px">
-        <h1>Direktori Kontak</h1>
-        <p style="color: #666">Daftar kontak dosen, admin, dan pusat layanan</p>
-        <p style="color: #666">
-          Daftar kontak ini berdasarkan data Excel terbaru, namun masih terdapat
-          kemungkinan adanya nomor yang sudah tidak aktif.
+  <body
+    class="bg-gradient-to-br from-slate-50 via-purple-50 to-slate-100 min-h-screen font-sans"
+  >
+    <!-- Header -->
+    <header class="bg-primary-500 text-white py-8 px-4 shadow-lg">
+      <div class="max-w-6xl mx-auto text-center">
+        <img
+          src="icon_jti_polinema.png"
+          alt="JTI Polinema"
+          width="285"
+          height="133"
+          class="mx-auto mb-4 drop-shadow-lg"
+        />
+        <h1 class="text-3xl md:text-4xl font-bold mb-3">Direktori Kontak</h1>
+        <p class="text-purple-200 text-lg mb-2">
+          Jurusan Teknologi Informasi - Polinema
         </p>
-        <p style="margin-top: 12px">
+        <p class="text-purple-300/80 text-sm max-w-xl mx-auto">
+          Daftar kontak dosen, admin, dan pusat layanan. Data berdasarkan Excel
+          terbaru, namun mungkin ada nomor yang sudah tidak aktif.
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-8 -mt-4">
+      <!-- Search & Contribution Card -->
+      <div class="bg-white rounded-2xl shadow-xl shadow-primary-500/5 p-6 mb-6">
+        <!-- Search Bar -->
+        <div class="relative max-w-md mx-auto mb-6">
+          <div
+            class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
+          >
+            <svg
+              class="w-5 h-5 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Cari kontak berdasarkan nama..."
+            class="w-full pl-12 pr-4 py-3 bg-gray-50 border-2 border-gray-100 rounded-xl text-gray-700 placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:bg-white transition-all duration-200"
+          />
+        </div>
+
+        <!-- Contribution Link -->
+        <div class="text-center">
           <a
             href="https://github.com/tektungg/jti_contact?tab=contributing-ov-file"
             target="_blank"
-            style="
-              color: #2196f3;
-              text-decoration: none;
-              font-weight: 500;
-              border: 2px solid #2196f3;
-              padding: 8px 16px;
-              border-radius: 6px;
-              display: inline-block;
-              transition: all 0.3s ease;
-            "
-            onmouseover="this.style.backgroundColor='#2196F3'; this.style.color='white';"
-            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#2196F3';"
+            class="inline-flex items-center gap-2 px-5 py-2.5 text-primary-500 border-2 border-primary-500/20 rounded-xl font-medium hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-all duration-200"
           >
-            📝 Panduan Kontribusi - Update Nomor Kontak
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+              />
+            </svg>
+            Panduan Kontribusi - Update Kontak
           </a>
-        </p>
-      </div>
-
-      <!-- Upload Excel untuk Dosen -->
-      <!-- <div style="margin-bottom: 12px">
-        <label
-          for="excel-input"
-          style="display: block; margin-bottom: 5px; font-weight: 500"
-        >
-          📁 Upload File Excel (Opsional):
-        </label>
-        <input
-          type="file"
-          id="excel-input"
-          accept=".xlsx,.xls"
-          style="margin-bottom: 5px"
-        />
-        <p style="margin: 0; font-size: 0.85rem; color: #666">
-          💡 Aplikasi akan otomatis membaca data dari
-          <strong>contacts.json</strong>. Upload file Excel untuk mengganti data
-          sementara.
-        </p>
-        <button
-          id="reload-json-btn"
-          onclick="reloadContactsFromJSON()"
-          style="
-            margin-top: 8px;
-            padding: 6px 12px;
-            background-color: #4caf50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.85rem;
-          "
-        >
-          🔄 Muat Ulang Data JSON
-        </button>
-      </div> -->
-
-      <!-- Search Bar -->
-      <div id="search-container">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Cari kontak berdasarkan nama..."
-        />
+        </div>
       </div>
 
       <!-- Tabs -->
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="dosen">
-          <span class="icon">👨‍🏫</span>
-          Dosen (6)
-        </button>
-        <button class="tab-btn" data-tab="admin">
-          <span class="icon">👩‍💼</span>
-          Admin (4)
-        </button>
-        <button class="tab-btn" data-tab="pusat">
-          <span class="icon">🏢</span>
-          Pusat (5)
-        </button>
-      </div>
+      <div
+        class="bg-white rounded-2xl shadow-xl shadow-primary-500/5 overflow-hidden"
+      >
+        <!-- Tab Navigation -->
+        <div class="flex border-b border-gray-100">
+          <button
+            class="tab-btn active flex-1 px-4 py-4 text-sm md:text-base font-medium text-gray-500 hover:text-primary-500 hover:bg-gray-50 transition-all duration-200 border-b-2 border-transparent data-[active=true]:text-primary-500 data-[active=true]:border-primary-500 data-[active=true]:bg-primary-50/50"
+            data-tab="dosen"
+          >
+            <span class="flex items-center justify-center gap-2">
+              <span class="text-lg">👨‍🏫</span>
+              <span>Dosen <span class="hidden sm:inline">(6)</span></span>
+            </span>
+          </button>
+          <button
+            class="tab-btn flex-1 px-4 py-4 text-sm md:text-base font-medium text-gray-500 hover:text-primary-500 hover:bg-gray-50 transition-all duration-200 border-b-2 border-transparent"
+            data-tab="admin"
+          >
+            <span class="flex items-center justify-center gap-2">
+              <span class="text-lg">👩‍💼</span>
+              <span>Admin <span class="hidden sm:inline">(4)</span></span>
+            </span>
+          </button>
+          <button
+            class="tab-btn flex-1 px-4 py-4 text-sm md:text-base font-medium text-gray-500 hover:text-primary-500 hover:bg-gray-50 transition-all duration-200 border-b-2 border-transparent"
+            data-tab="pusat"
+          >
+            <span class="flex items-center justify-center gap-2">
+              <span class="text-lg">🏢</span>
+              <span>Pusat <span class="hidden sm:inline">(5)</span></span>
+            </span>
+          </button>
+        </div>
 
-      <!-- Tab Contents -->
-      <div id="dosen" class="tab-content active"></div>
-      <div id="admin" class="tab-content"></div>
-      <div id="pusat" class="tab-content"></div>
+        <!-- Tab Contents -->
+        <div class="p-4 md:p-6">
+          <div id="dosen" class="tab-content active fade-in"></div>
+          <div id="admin" class="tab-content fade-in"></div>
+          <div id="pusat" class="tab-content fade-in"></div>
+        </div>
+      </div>
 
       <!-- Footer -->
-      <div class="footer">
-        Klik tombol "Hubungi" untuk membuka chat WhatsApp
-      </div>
-    </div>
+      <footer class="text-center mt-8 py-6">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm text-gray-500 text-sm"
+        >
+          <svg
+            class="w-4 h-4 text-whatsapp"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            />
+          </svg>
+          Klik tombol "Hubungi" untuk membuka chat WhatsApp
+        </div>
+        <p class="mt-4 text-xs text-gray-400">
+          &copy; 2024 JTI Polinema. Dibuat dengan ❤️ untuk kemudahan komunikasi.
+        </p>
+      </footer>
+    </main>
 
     <script src="script.js"></script>
   </body>
