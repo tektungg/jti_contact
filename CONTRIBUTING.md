@@ -129,7 +129,6 @@ Sebelum mengirim Pull Request, pastikan:
 1. Maintainer akan me-review Pull Request Anda
 2. Jika ada yang perlu diperbaiki, Anda akan diberitahu via komentar
 3. Setelah approved, perubahan akan di-merge
-4. Website akan otomatis terupdate (jika menggunakan GitHub Pages)
 
 ## Butuh Bantuan?
 
