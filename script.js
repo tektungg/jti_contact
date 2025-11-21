@@ -159,7 +159,7 @@ function renderPagination(tab, currentPageNum, totalPages, totalItems) {
         <button
           onclick="goToPage('${tab}', ${currentPageNum - 1})"
           ${currentPageNum === 1 ? "disabled" : ""}
-          class="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
+          class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -170,13 +170,13 @@ function renderPagination(tab, currentPageNum, totalPages, totalItems) {
         ${pageNumbers
           .map((num) => {
             if (num === "...") {
-              return `<span class="px-3 py-2 text-gray-400">...</span>`;
+              return `<span class="w-10 h-10 flex items-center justify-center text-gray-400">...</span>`;
             }
             const isActive = num === currentPageNum;
             return `
             <button
               onclick="goToPage('${tab}', ${num})"
-              class="px-3 py-2 rounded-lg border transition-all duration-200 ${
+              class="w-10 h-10 flex items-center justify-center rounded-lg border transition-all duration-200 ${
                 isActive
                   ? "bg-primary-500 border-primary-500 text-white font-medium"
                   : "border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300"
@@ -192,7 +192,7 @@ function renderPagination(tab, currentPageNum, totalPages, totalItems) {
         <button
           onclick="goToPage('${tab}', ${currentPageNum + 1})"
           ${currentPageNum === totalPages ? "disabled" : ""}
-          class="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
+          class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:border-gray-200"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -212,11 +212,6 @@ function goToPage(tab, page) {
 
   currentPage[tab] = page;
   renderContacts(tab, contacts);
-
-  // Scroll to top of content
-  document
-    .getElementById(tab)
-    .scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 // Get filtered contacts for current tab
