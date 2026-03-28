@@ -1,4 +1,4 @@
-import { useReducer, useMemo, useCallback, useRef } from 'react'
+import { useReducer, useMemo, useCallback, useRef, useEffect } from 'react'
 import type { ContactData, TabKey } from './types/contact'
 import type { RawContactsJSON } from './types/contact'
 import { mapContacts } from './utils/mapContacts'
@@ -118,7 +118,7 @@ export default function App() {
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   // Load contacts.json on mount
-  useMemo(() => {
+  useEffect(() => {
     async function load() {
       try {
         const res = await fetch(`${import.meta.env.BASE_URL}contacts.json`)
@@ -145,7 +145,6 @@ export default function App() {
       }
     }
     load()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Debounce search for performance
