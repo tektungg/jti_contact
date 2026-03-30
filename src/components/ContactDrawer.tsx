@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Contact } from "../types/contact";
 import { openWhatsApp } from "../utils/whatsapp";
 import { sanitizePhone } from "../utils/security";
@@ -24,10 +24,21 @@ export function ContactDrawer({
   onClose,
   onToggleFavorite,
 }: Props) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [renderContact, setRenderContact] = useState<Contact | null>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!contact) return;
+    if (contact) {
+      setRenderContact(contact);
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [contact]);
+
+  useEffect(() => {
+    if (!isOpen) return;
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
@@ -37,23 +48,34 @@ export function ContactDrawer({
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
     };
-  }, [contact, onClose]);
+  }, [isOpen, onClose]);
 
-  if (!contact) return null;
+  const handleAnimationEnd = () => {
+    if (!isOpen) {
+      setRenderContact(null);
+    }
+  };
+
+  if (!renderContact) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end" onClick={onClose}>
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+      <div
+        className={`absolute inset-0 bg-black/40 backdrop-blur-sm ${isOpen ? "animate-fade-in" : "animate-fade-out"}`}
+      />
 
       {/* Drawer panel */}
       <div
         ref={drawerRef}
         role="dialog"
         aria-modal="true"
-        aria-label={`Detail kontak ${contact.nama}`}
-        className="relative w-full max-w-md bg-white shadow-2xl animate-drawer-in overflow-y-auto"
+        aria-label={`Detail kontak ${renderContact.nama}`}
+        className={`relative w-full max-w-md bg-white shadow-2xl overflow-y-auto ${
+          isOpen ? "animate-drawer-in" : "animate-drawer-out"
+        }`}
         onClick={(e) => e.stopPropagation()}
+        onAnimationEnd={handleAnimationEnd}
       >
         {/* Close button */}
         <button
@@ -82,7 +104,7 @@ export function ContactDrawer({
         {/* Avatar overlapping header */}
         <div className="px-6 -mt-12">
           <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-2xl font-bold shadow-xl border-4 border-white ">
-            {getInitials(contact.nama)}
+            {getInitials(renderContact.nama)}
           </div>
         </div>
 
@@ -90,10 +112,10 @@ export function ContactDrawer({
         <div className="px-6 py-5">
           <div className="flex items-start justify-between gap-3 mb-1">
             <h2 className="text-xl font-bold text-gray-900 leading-snug">
-              {contact.nama}
+              {renderContact.nama}
             </h2>
             <button
-              onClick={() => onToggleFavorite(contact.id)}
+              onClick={() => onToggleFavorite(renderContact.id)}
               aria-label={
                 isFavorite ? "Hapus dari favorit" : "Tambah ke favorit"
               }
@@ -115,9 +137,9 @@ export function ContactDrawer({
             </button>
           </div>
 
-          {contact.jabatan && (
+          {renderContact.jabatan && (
             <span className="inline-flex items-center px-3 py-1 text-sm font-medium rounded-full bg-primary-50 text-primary-700 mb-4">
-              {contact.jabatan}
+              {renderContact.jabatan}
             </span>
           )}
 
@@ -142,10 +164,12 @@ export function ContactDrawer({
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-xs text-gray-400 ">Nomor WhatsApp</p>
-                <p className="font-semibold text-gray-800 ">{contact.noWA}</p>
+                <p className="font-semibold text-gray-800 ">
+                  {renderContact.noWA}
+                </p>
               </div>
               <button
-                onClick={() => copyToClipboard(contact.noWA)}
+                onClick={() => copyToClipboard(renderContact.noWA)}
                 aria-label="Salin nomor"
                 className="w-9 h-9 flex items-center justify-center rounded-lg text-gray-400 hover:bg-gray-200 :bg-gray-700 hover:text-gray-600 :text-gray-300 transition-colors"
               >
@@ -166,7 +190,7 @@ export function ContactDrawer({
             </div>
 
             {/* Room */}
-            {contact.ruang && (
+            {renderContact.ruang && (
               <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
                 <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
                   <svg
@@ -192,14 +216,14 @@ export function ContactDrawer({
                 <div>
                   <p className="text-xs text-gray-400 ">Ruang</p>
                   <p className="font-semibold text-gray-800 ">
-                    {contact.ruang}
+                    {renderContact.ruang}
                   </p>
                 </div>
               </div>
             )}
 
             {/* Keperluan */}
-            {contact.keperluan && (
+            {renderContact.keperluan && (
               <div className="flex items-start gap-3 p-3 bg-gray-50 rounded-xl">
                 <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
                   <svg
@@ -219,7 +243,7 @@ export function ContactDrawer({
                 <div>
                   <p className="text-xs text-gray-400 ">Keperluan</p>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    {contact.keperluan}
+                    {renderContact.keperluan}
                   </p>
                 </div>
               </div>
@@ -229,7 +253,7 @@ export function ContactDrawer({
           {/* Action buttons */}
           <div className="mt-6 space-y-3">
             <button
-              onClick={() => openWhatsApp(sanitizePhone(contact.noWA))}
+              onClick={() => openWhatsApp(sanitizePhone(renderContact.noWA))}
               className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-whatsapp to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 px-4 rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-green-500/25 active:scale-[0.98]"
             >
               <svg
@@ -243,7 +267,7 @@ export function ContactDrawer({
             </button>
 
             <button
-              onClick={() => copyToClipboard(contact.noWA)}
+              onClick={() => copyToClipboard(renderContact.noWA)}
               className="w-full flex items-center justify-center gap-2 border-2 border-gray-200 text-gray-600 font-medium py-3 px-4 rounded-xl hover:bg-gray-50 :bg-gray-800 transition-all duration-200 active:scale-[0.98]"
             >
               <svg
