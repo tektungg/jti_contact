@@ -399,7 +399,7 @@ export default function App() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href="https://github.com/tektungg/jti_contact?tab=contributing-ov-file"
+              href="https://wa.me/6285156530441?text=Halo,%20saya%20ingin%20memberi%20tahu%20bahwa%20nomor%20dari%20dosen%20...%20berubah%20menjadi%20..."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 text-primary-600 border-2 border-primary-200/60 rounded-xl font-medium hover:bg-primary-500 hover:text-white hover:border-primary-500 transition-all duration-200"
@@ -418,7 +418,7 @@ export default function App() {
                   d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                 />
               </svg>
-              Panduan Kontribusi
+              Beritahu Tim Kami Nomor Dosen yang Baru
             </a>
 
             <label
