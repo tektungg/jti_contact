@@ -177,7 +177,9 @@ export default function App() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch(`${import.meta.env.BASE_URL}contacts.json`);
+        const res = await fetch(
+          `${import.meta.env.BASE_URL}contacts.json?t=${new Date().getTime()}`,
+        );
         if (!res.ok) throw new Error("Network error");
         const json: RawContactsJSON = await res.json();
 
